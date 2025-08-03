@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --celestial-navy: #0f0f23;
+  --celestial-deep: #1a1a2e;
+  --celestial-purple: #16213e;
+  --celestial-blue: #0f3460;
+  --celestial-cyan: #53a8b6;
+  --celestial-gold: #ffd700;
+  --celestial-silver: #c0c0c0;
+  --constellation-glow: #9d4edd;
+  --nebula-pink: #c77dff;
+  --star-white: #f8f9fa;
+}
+
+@theme inline {
+  --color-celestial-navy: var(--celestial-navy);
+  --color-celestial-deep: var(--celestial-deep);
+  --color-celestial-purple: var(--celestial-purple);
+  --color-celestial-blue: var(--celestial-blue);
+  --color-celestial-cyan: var(--celestial-cyan);
+  --color-celestial-gold: var(--celestial-gold);
+  --color-celestial-silver: var(--celestial-silver);
+  --color-constellation-glow: var(--constellation-glow);
+  --color-nebula-pink: var(--nebula-pink);
+  --color-star-white: var(--star-white);
+}
+
+/* Celestial Background Animation */
+@keyframes constellation {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes nebula-drift {
+  0% { 
+    transform: translateX(-50px) translateY(-30px);
+    opacity: 0.1;
+  }
+  50% { 
+    transform: translateX(30px) translateY(20px);
+    opacity: 0.3;
+  }
+  100% { 
+    transform: translateX(-50px) translateY(-30px);
+    opacity: 0.1;
+  }
+}
+
+@keyframes stellar-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--constellation-glow);
+    opacity: 0.7;
+  }
+  50% { 
+    box-shadow: 0 0 20px var(--constellation-glow), 0 0 30px var(--nebula-pink);
+    opacity: 1;
+  }
+}
+
+.constellation-bg {
+  background: linear-gradient(135deg, var(--celestial-navy) 0%, var(--celestial-deep) 25%, var(--celestial-purple) 50%, var(--celestial-blue) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.constellation-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, var(--constellation-glow) 1px, transparent 1px),
+    radial-gradient(circle at 70% 30%, var(--celestial-cyan) 1px, transparent 1px),
+    radial-gradient(circle at 40% 60%, var(--nebula-pink) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, var(--celestial-gold) 1px, transparent 1px),
+    radial-gradient(circle at 10% 90%, var(--celestial-silver) 1px, transparent 1px);
+  background-size: 400px 400px, 300px 300px, 500px 500px, 350px 350px, 450px 450px;
+  animation: constellation 6s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.stellar-glow {
+  box-shadow: 
+    0 0 10px var(--constellation-glow),
+    0 0 20px var(--constellation-glow),
+    0 0 30px var(--constellation-glow);
+  animation: stellar-pulse 3s ease-in-out infinite;
+}
+
+.nebula-effect {
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    var(--nebula-pink) 50%, 
+    transparent 70%);
+  animation: nebula-drift 8s ease-in-out infinite;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', system-ui, sans-serif;
+  background: var(--celestial-navy);
+  color: var(--star-white);
+  min-height: 100vh;
+}
