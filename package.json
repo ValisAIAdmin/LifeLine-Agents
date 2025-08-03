@@ -1,0 +1,26 @@
+{
+  "name": "lifeline-agents",
+  "version": "0.1.0",
+  "description": "AI agents for LifeLine project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "lifeline",
+    "artificial-intelligence"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ValisAIAdmin/LifeLine-Agents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ValisAIAdmin/LifeLine-Agents/issues"
+  },
+  "homepage": "https://github.com/ValisAIAdmin/LifeLine-Agents#readme"
+}
